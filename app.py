@@ -1,6 +1,13 @@
 
 # -----------------------------------------
-# UPLOAD IMAGE RESULT
+# CREATE TABS
+# -----------------------------------------
+
+tab1, tab2 = st.tabs(["Upload Image", "Camera"])
+
+
+# -----------------------------------------
+# TAB 1: UPLOAD IMAGE
 # -----------------------------------------
 
 with tab1:
@@ -12,7 +19,7 @@ with tab1:
 
     if uploaded_file is not None:
 
-        if st.button("Detect Faces and Eyes"):
+        if st.button("Detect Faces and Eyes", key="upload_detect"):
 
             try:
                 with st.spinner("Detecting..."):
@@ -48,7 +55,7 @@ with tab1:
 
 
 # -----------------------------------------
-# CAMERA SNAPSHOT
+# TAB 2: CAMERA SNAPSHOT
 # -----------------------------------------
 
 with tab2:
