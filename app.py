@@ -35,7 +35,7 @@ def detect_faces_and_eyes(image, face_cascade, eye_cascade):
     minNeighbors=12,
     minSize=(80, 80),
     maxSize=(500, 500
-            )
+            ))
 
     eye_count = 0
 
