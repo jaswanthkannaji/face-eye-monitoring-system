@@ -58,11 +58,24 @@ def detect_faces_and_eyes(image, face_cascade, eye_cascade):
     gray = cv2.equalizeHist(gray)
 
     faces = face_cascade.detectMultiScale(
-        gray,
-        scaleFactor=1.1,
-        minNeighbors=6,
-        minSize=(80, 80)
-    )
+    gray,
+    scaleFactor=1.2,
+    minNeighbors=12,
+    minSize=(120, 120),
+    flags=cv2.CASCADE_SCALE_IMAGE
+)
+
+# Filter out unlikely face-shaped regions
+valid_faces = []
+
+for (x, y, w, h) in faces:
+
+    aspect_ratio = w / float(h)
+
+    if 0.75 <= aspect_ratio <= 1.30:
+        valid_faces.append((x, y, w, h))
+
+faces = valid_faces
 
     eye_count = 0
 
