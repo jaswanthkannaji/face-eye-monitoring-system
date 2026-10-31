@@ -30,10 +30,10 @@ def detect_faces_and_eyes(image, face_cascade, eye_cascade):
     gray = cv2.equalizeHist(gray)
 
     faces = face_cascade.detectMultiScale(
-        gray,
-        scaleFactor=1.1,
-        minNeighbors=5,
-        minSize=(40, 40)
+    gray,
+    scaleFactor=1.1,
+    minNeighbors=8,
+    minSize=(60, 60)
     )
 
     eye_count = 0
